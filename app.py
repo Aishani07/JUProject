@@ -3,7 +3,7 @@ import os, gdown
 MODEL_PATH = "weather_model.pth"
 if not os.path.exists(MODEL_PATH):
     gdown.download(
-        "https://drive.google.com/uc?id=/1obrYT-31tbPUEnmVuPiA_F1GLr5ZEZHO/",
+        "https://drive.google.com/uc?id=1obrYT-31tbPUEnmVuPiA_F1GLr5ZEZHO",
         MODEL_PATH,
         quiet=False
     )
