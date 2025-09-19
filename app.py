@@ -57,3 +57,4 @@ if uploaded is not None:
     st.subheader(f"Predicted: {pred_class}")
     st.success(recommendation.get(pred_class, "No specific advice for this class."))
 
+
