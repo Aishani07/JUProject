@@ -1,13 +1,12 @@
-
-import os, requests
+import os, gdown
 
 MODEL_PATH = "weather_model.pth"
-MODEL_URL = "https://drive.google.com/file/d/1obrYT-31tbPUEnmVuPiA_F1GLr5ZEZHO/view?usp=sharing"
-
 if not os.path.exists(MODEL_PATH):
-    r = requests.get(MODEL_URL)
-    with open(MODEL_PATH, "wb") as f:
-        f.write(r.content)
+    gdown.download(
+        "https://drive.google.com/uc?id=/1obrYT-31tbPUEnmVuPiA_F1GLr5ZEZHO/",
+        MODEL_PATH,
+        quiet=False
+    )
 
 import streamlit as st
 from PIL import Image
@@ -56,5 +55,6 @@ if uploaded is not None:
         pred_class = classes[idx]
     st.subheader(f"Predicted: {pred_class}")
     st.success(recommendation.get(pred_class, "No specific advice for this class."))
+
 
 
