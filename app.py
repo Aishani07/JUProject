@@ -47,7 +47,7 @@ recommendation = {
 uploaded = st.file_uploader("Upload sky photo", type=["jpg","jpeg","png"])
 if uploaded is not None:
     img = Image.open(uploaded).convert("RGB")
-    st.image(img, caption="Uploaded photo", use_column_width=True)
+    st.image(img, caption="Uploaded photo", use_container_width=True)
     input_tensor = preprocess(img).unsqueeze(0)
     with torch.no_grad():
         outputs = model(input_tensor)
@@ -55,6 +55,7 @@ if uploaded is not None:
         pred_class = classes[idx]
     st.subheader(f"Predicted: {pred_class}")
     st.success(recommendation.get(pred_class, "No specific advice for this class."))
+
 
 
 
